@@ -1,0 +1,73 @@
+<%- include("partials/header.ejs"); %>
+
+<div class="container text-center py-3 px-5">
+
+    <h2> Your Blog Web Application </h2>
+
+    <form action="/post" method="POST" class="my-4 py-4">
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Post Title</label>
+            <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Post Content</label>
+            <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+        </div>
+
+        <div class="my-4">
+            <button class="btn btn-primary" type="submit">Create Post</button>
+        </div>
+
+    </form>
+
+</div>
+
+<div class="container">
+
+    <!-- It works either if you put if(locals.pos.... === 0) or not -->
+    <% if (posts.length === 0) { %>
+
+        <p>No posts yet.</p>
+
+    <% } else { %>
+
+        <div class="row justify-content-center">
+
+            <% posts.forEach(post => { %>
+
+                <div class="col-4">
+
+                    <div class="card text-center m-2" id="eachPost">
+
+                        <div class="card-body">
+                            
+                            <h3 class="card-title"> <%= post.title %> </h3>
+
+                            <hr />
+
+                            <p class="card-text"> <%= post.content %> </p>
+
+                            <hr />
+
+                            <button class="btn btn-warning m-2"> <a href="/edit/<%= post.id %>" class="edit-btn">Edit</a> </button>
+
+                            <button class="btn btn-danger m-2"> <a href="/delete/<%= post.id %>" class="delete-btn">Delete</a> </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                
+            <% }); %>
+
+        </div>
+
+    <% } %>
+
+</div>
+
+
+<%- include("partials/footer.ejs"); %>

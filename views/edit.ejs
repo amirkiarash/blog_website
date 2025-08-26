@@ -1,0 +1,29 @@
+<%- include("partials/header.ejs"); %>
+
+<div class="container text-center py-3 px-5">
+
+    <h1>Edit Post</h1>
+    <hr />
+    <form action="/edit/<%= post.id %>" method="POST" class="my-4 py-4">
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Post Title</label>
+            <input type="text" name="title" class="form-control" value="<%= post.title %>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Post Content</label>
+            <textarea class="form-control" name="content" rows="5" required><%= post.content %></textarea>
+        </div>
+
+        <div class="my-4">
+            <button class="btn btn-success" type="submit">Save Changes</button>
+            <button class="btn btn-secondary"> <a href="/" class="cancel-btn">Cancel</a> </button>
+        </div>
+
+    </form>
+
+</div>
+
+
+<%- include("partials/footer.ejs"); %>
