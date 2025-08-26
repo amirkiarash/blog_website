@@ -1,5 +1,5 @@
 # blog_website
-Blog Website
+Blog Web Application
 
 This is your Blog web application without Data Base.
 Programming Languages: Node.js, Express.js and EJS.
