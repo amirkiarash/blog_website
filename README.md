@@ -1,4 +1,4 @@
-# blog_website
+# Blog Web Application
 Blog Web Application
 
 This is your Blog web application without Data Base.
